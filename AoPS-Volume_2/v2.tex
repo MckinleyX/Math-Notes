@@ -100,7 +100,7 @@
 \end{exercise}
 
 \begin{definition*}
-	A \textbf{quadratic residue} $\pmod{m}$ is a number $n$ such that $\exists i$ such that $i^2 \equiv n \pmod{m}$
+	A \textbf{quadratic residue}$\pmod{m}$ is a number $n$ such that $\exists i$ such that $i^2 \equiv n \pmod{m}$
 \end{definition*}
 
 \begin{exercise}
@@ -130,7 +130,7 @@ Find all quadratic residues in mod 7, 8, and 9.
 \begin{exercise}
 	Why does this work?
 	\begin{soln}
-		It's like a disguised genfunc!
+		It's like a genfunc!
 	\end{soln}
 \end{exercise}
 
@@ -367,7 +367,10 @@ Find all quadratic residues in mod 7, 8, and 9.
 	\[x_1x_2x_3x_4 + x_2x_3x_4x_5 + \cdots + x_{n-2}x_{n-1}x_nx_1 + x_{n-1}x_nx_1x_2 + x_nx_1x_2x_3 = 0\]
 	Prove that $4 \mid n$.
 	\begin{soln}
-		We first note that
+		We solve this problem first for the 2-number case: \\
+		Every $-1$ is the result of a parity change from $x_i$ to $x_{i+1}$, so an even number of parity changes are required to get back where we started, and our total number of terms is twice that, so $4 \mid n$.
+		
+		This seems a bit hard to translate into the 4-case.
 	\end{soln}
 \end{a_problem}
 
