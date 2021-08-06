@@ -248,8 +248,10 @@ Find all quadratic residues in mod 7, 8, and 9.
 	Find the largest integer divisor of $n^5 - n$
 	\begin{soln}
 		This expression is equal to $n(n^2+1)(n+1)(n-1)$. \\
-		Note that if $n=2$ then our expression is equal to $30$, so our largest integer must be a divisor of $30$. \\
-		We claim that 30 always divides $n^5 - n$ (for $n \in \mathbb{Z}$). \\
+		Note that if $n=2$ then our expression is equal to $30$, so our largest integer must be a divisor of $30$. 
+		\begin{claim*}
+		30 always divides $n^5 - n$ (for $n \in \mathbb{Z}$). 
+		\end{claim*}
 		Clearly one of $n$ and $n-1$ are divisible by 2, so our expression is always divisible by 2. Similarly, one of $n-1$, $n$, and $n+1$ are divisible by 3. \\
 		Now, suppose that this expression is not divisible by 5 for some $n$.
 		That implies that each of $n-1, n, n+1 \not\equiv 0 \pmod{5}$.
