@@ -367,10 +367,7 @@ Find all quadratic residues in mod 7, 8, and 9.
 	\[x_1x_2x_3x_4 + x_2x_3x_4x_5 + \cdots + x_{n-2}x_{n-1}x_nx_1 + x_{n-1}x_nx_1x_2 + x_nx_1x_2x_3 = 0\]
 	Prove that $4 \mid n$.
 	\begin{soln}
-		We solve this problem first for the 2-number case: \\
-		Every $-1$ is the result of a parity change from $x_i$ to $x_{i+1}$, so an even number of parity changes are required to get back where we started, and our total number of terms is twice that, so $4 \mid n$.
-		
-		This seems a bit hard to translate into the 4-case.
+		Split each term up into $x_i x_{i+1}$ and $x_{i+2}x_{i+3}$. Note that
 	\end{soln}
 \end{a_problem}
 
@@ -399,13 +396,31 @@ Find the positive integer $m$ such that the polynomial $p^3 + 2p + m$ divides $p
 \begin{a_problem}
 Let $d$ be any positive integer not equal to 2, 5, or 13. Show that one can find distinct $(a,b)$ in the set $\{2,5,13,d\}$ such that $ab-1$ is not a perfect square.
 	\begin{soln}
-		Suppose there exists integers $x,y,z$ such that
+		Suppose there exist positive integers $x,y,z$ such that
 		\begin{align*}
 			x^2 &= 2d+1 \\
 			y^2 &= 5d+1 \\
 			z^2 &= 13d+1 \\
 		\end{align*}
 		Then $y^2-x^2 = 3d$, $z^2 - y^2 = 8d$, and $z^2 - x^2 = 11d$.
+		As a result, we have
+		\begin{align*}
+			(y+x)(y-x) &= 3d  &\implies x &\equiv \pm y \pmod{3} \\
+			(z+y)(z-y) &= 8d  &\implies y &\equiv \pm z \pmod{8} \\
+			(z+x)(z-x) &= 11d &\implies z &\equiv \pm x \pmod{11}
+		\end{align*}
+		\begin{align*}
+			3i \pm x &= y \\
+			8j \pm y &= z \\
+			11k \pm x &= z \\
+		\end{align*}
+		\begin{align*}
+			8j \pm y &= 11k \pm x \\
+			8j \pm 3i \pm x &= 11k \pm x \\
+			x &= \pm\frac{\pm3i + 8j - 11k}{2}
+		\end{align*}
+		This is getting really messy, let's try something else.
+			
 	\end{soln}
 \end{a_problem}
 
@@ -416,6 +431,15 @@ Let $d$ be any positive integer not equal to 2, 5, or 13. Show that one can find
 
 \begin{a_problem}
 	Prove that a positive integer is a sum of at least two consecutive positive integers if and only if it is not a power of two.
+	\begin{soln}
+		For some $n=2^a \cdot b$ where b is odd, we split this up into two cases.
+
+		Case 1. $2^a \geq \frac{b+1}{2} $ (and $b > 1$) \\
+		We just take $2^a$, the $\frac{b-1}{2}$ numbers below it, and the $\frac{b-1}{2}$ numbers above it. Because $2^a > \frac{b+1}{2}$ all of these numbers are positive, and there are $b > 1$ terms in this sequence.
+
+		Case 2.$2^a < \frac{b+1}{2} $ \\
+		Consider the $2^a$ consecutive integers ending at $\frac{b-1}{2}$ and the $2^a$ consecutive integers beginning at $\frac{b+1}{2}$. The sum of these integers is obviously $n$, and the minimum integer is $\frac{b+1}{2} - 2^a \geq 1$, so we're done.
+	\end{soln}
 \end{a_problem}
 
 \section{Diophantine Equations}
