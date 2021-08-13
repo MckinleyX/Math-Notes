@@ -107,7 +107,7 @@
 Find all quadratic residues in mod 7, 8, and 9.
 	\begin{soln}
 		We're lazy so we'll just do mod 7.
-		Well, we have $0^2, 1^2, 2^2,$ and $3^2 \pmod{7}$, so \fbox{0, 1, 2, and 4}.
+		Well, we have $0^2, 1^2, 2^2$, and $3^2 \pmod{7}$, so \fbox{0, 1, 2, and 4}.
 	\end{soln}
 \end{exercise}
 
@@ -175,14 +175,14 @@ Find all quadratic residues in mod 7, 8, and 9.
 \begin{exercise}
 	Find all possible periods a number can have $\pmod{23}$
 	\begin{soln}
-		Well, $a^22$ must be 1, so the period length must be 1, 2, 11, or 22.
+		Well, $a^{22}$ must be 1, so the period length must be 1, 2, 11, or 22.
 	\end{soln}
 \end{exercise}
 \begin{definition*}
 	A \textbf{primitive root $\pmod{p}$} is a number $g$ with period $p-1$.
 \end{definition*}
 \begin{exercise}
-	Let the divisors of $p-1$ be $d_1, d_2, ....$ Prove that if we have a primitive root $g \pmod{p}$, then for each $d_i$ there is an element with period $d_i$.
+	Let the divisors of $p-1$ be $d_1, d_2,\dots$ Prove that if we have a primitive root $g \pmod{p}$, then for each $d_i$ there is an element with period $d_i$.
 	\begin{soln}
 		If $g$ has period $p-1$, then $g^{\frac{p-1}{d_i}}$ has period $d_i$.
 	\end{soln}
@@ -201,7 +201,7 @@ Find all quadratic residues in mod 7, 8, and 9.
 	\begin{proof}
 		Consider some primitive root $g \pmod{p}$. By the definition of a primitive root, $\{g^k \mid k \in [p-1] \} = [p-1]$. So
 		\[(p-1)! \equiv g^{\frac{p(p-1)}{2}} \pmod{p}\]
-		But because $g^p \equiv g\left(g^{p-1}\right) \equiv g \pmod{p}$, $g^{\frac{p(p-1)}{2}} \equiv \left(g^p\right)^{\frac{p-1}{2}} \equiv g^{\frac{p-1}{2}} \pmod{p}$.
+	But because $g^p \equiv g\left(g^{p-1}\right) \equiv g \pmod{p}$, $g^{\frac{p(p-1)}{2}} \equiv {\left(g^p\right)}^{\frac{p-1}{2}} \equiv g^{\frac{p-1}{2}} \pmod{p}$.
 		Let $t = g^{\frac{p-1}{2}}$. Note that
 		\[t^2 = g^{p-1} \equiv 1 \pmod{p}\]
 		So $t^2 - 1 \equiv 0 \pmod{p}$, and $t \equiv \pm 1 \pmod{p}$ \\
@@ -240,7 +240,7 @@ Find all quadratic residues in mod 7, 8, and 9.
 		The condition is equivalent to $x^2 + x + 1$.
 		We just test all numbers $\pmod{7}$.
 		1 doesn't work, 2 does, 3 doesn't, 4 does, 5 doesn't, and 6 doesn't. \\
-		So 
+		We can just bash this out.
 	\end{soln}
 \end{a_problem}
 
@@ -261,7 +261,7 @@ Find all quadratic residues in mod 7, 8, and 9.
 	\end{soln}
 	\begin{remark}
 		Another solution could be to use induction and show that 
-		\[30 \mid ((n+1)^5 - (n+1)) - (n^5 - n)\]
+		\[30 \mid ({(n+1)}^5 - (n+1)) - (n^5 - n)\]
 		However this is terribly messy and sad.
 	\end{remark}
 \end{a_problem}
@@ -336,7 +336,7 @@ Find all quadratic residues in mod 7, 8, and 9.
 	Let $n$ be an integer. If the tens digit of $n^2$ is 7, what is the units digit of $n^2$?
 	\begin{soln}
 		Consider $n^2 \pmod{100}$. \\
-		We want to find $10a+b$ such that $2ab + (\text{the tens digit of $b^2$}) = 7.$ \\
+		We want to find $10a+b$ such that $2ab + (\text{the tens digit of $b^2$}) = 7$. \\
 		Clearly the tens digit of $b^2$ must be odd, so $b=4$ or $b=6$, so our units digit must be \boxed{6}.
 	\end{soln}
 \end{a_problem}
@@ -366,7 +366,7 @@ Find all quadratic residues in mod 7, 8, and 9.
 
 \begin{a_problem}
 	Each of the numbers $x_1, x_2,\dots x_n$ equals 1 or -1, and
-	\[x_1x_2x_3x_4 + x_2x_3x_4x_5 + \cdots + x_{n-2}x_{n-1}x_nx_1 + x_{n-1}x_nx_1x_2 + x_nx_1x_2x_3 = 0\]
+	\[x_1x_2x_3x_4 + x_2x_3x_4x_5 + \cdots + x_{n-2}x_{n-1}x_{n}x_1 + x_{n-1}x_{n}x_1x_2 + x_{n}x_1x_2x_3 = 0\]
 	Prove that $4 \mid n$.
 	\begin{soln}
 		Split each term up into $x_i x_{i+1}$ and $x_{i+2}x_{i+3}$. Note that
@@ -434,13 +434,13 @@ Let $d$ be any positive integer not equal to 2, 5, or 13. Show that one can find
 \begin{a_problem}
 	Prove that a positive integer is a sum of at least two consecutive positive integers if and only if it is not a power of two.
 	\begin{soln}
-		For some $n=2^a \cdot b$ where b is odd, we split this up into two cases.
+		For some $n=2^a \cdot b$ where b is odd, we split this up into two cases. 
 
 		Case 1. $2^a \geq \frac{b+1}{2} $ (and $b > 1$) \\
 		We just take $2^a$, the $\frac{b-1}{2}$ numbers below it, and the $\frac{b-1}{2}$ numbers above it. Because $2^a > \frac{b+1}{2}$ all of these numbers are positive, and there are $b > 1$ terms in this sequence.
 
 		Case 2. $2^a < \frac{b+1}{2} $ \\
-		Consider the $2^a$ consecutive integers ending at $\frac{b-1}{2}$ and the $2^a$ consecutive integers beginning at $\frac{b+1}{2}$. The sum of these integers is obviously $2^ab = n$, and the minimum integer is $\frac{b+1}{2} - 2^a \geq 1$, so we're done.
+		Consider the $2^a$ consecutive integers ending at $\frac{b-1}{2}$ and the $2^a$ consecutive integers beginning at $\frac{b+1}{2}$. The sum of these integers is obviously $2^{a}b = n$, and the minimum integer is $\frac{b+1}{2} - 2^a \geq 1$, so we're done.
 	\end{soln}
 \end{a_problem}
 
