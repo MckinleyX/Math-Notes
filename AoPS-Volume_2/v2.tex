@@ -405,23 +405,7 @@ Let $d$ be any positive integer not equal to 2, 5, or 13. Show that one can find
 			z^2 &= 13d+1 \\
 		\end{align*}
 		Then $y^2-x^2 = 3d$, $z^2 - y^2 = 8d$, and $z^2 - x^2 = 11d$.
-		As a result, we have
-		\begin{align*}
-			(y+x)(y-x) &= 3d  &\implies x &\equiv \pm y \pmod{3} \\
-			(z+y)(z-y) &= 8d  &\implies y &\equiv \pm z \pmod{8} \\
-			(z+x)(z-x) &= 11d &\implies z &\equiv \pm x \pmod{11}
-		\end{align*}
-		\begin{align*}
-			3i \pm x &= y \\
-			8j \pm y &= z \\
-			11k \pm x &= z \\
-		\end{align*}
-		\begin{align*}
-			8j \pm y &= 11k \pm x \\
-			8j \pm 3i \pm x &= 11k \pm x \\
-			x &= \pm\frac{\pm3i + 8j - 11k}{2}
-		\end{align*}
-		This is getting really messy, let's try something else.
+		Clearly $x$ is odd, so $x^2 \equiv 1 \pmod 8$, and $2d \equiv x^2 + 1 \equiv 2 \pmod 8$, so $d$ is odd. This forces $y$ and $z$ to be even, so let $y=2u$ and $z=2v$. Since $z^2 - y^2 = 8d$, we have $(v+u)(v-u) = 2d$. But because $u+v$ and $u-v$ must have the same parity, then both must be even, so $4 \mid 2d \implies 2 \mid d$, which is a contradiction.
 			
 	\end{soln}
 \end{a_problem}
