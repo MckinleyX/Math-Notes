@@ -369,7 +369,7 @@ Find all quadratic residues in mod 7, 8, and 9.
 	\[x_1x_2x_3x_4 + x_2x_3x_4x_5 + \cdots + x_{n-2}x_{n-1}x_{n}x_1 + x_{n-1}x_{n}x_1x_2 + x_{n}x_1x_2x_3 = 0\]
 	Prove that $4 \mid n$.
 	\begin{soln}
-		Split each term up into $x_i x_{i+1}$ and $x_{i+2}x_{i+3}$. Note that
+		Let term number $k$ be $y_k$. So each $y_i$ is either $1$ or $-1$, and the sum of all $y_1 + \cdots + y_n = 0 \implies 2 \mid n$. Let $n=2m$. $y_1 y_2 \cdots y_n = {\left(-1\right)}^m$, but each $x_j$ appears 4 times in this product, so $2 \mid m$ and we are done.
 	\end{soln}
 \end{a_problem}
 
