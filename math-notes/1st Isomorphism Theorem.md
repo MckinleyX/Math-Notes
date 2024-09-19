@@ -1,0 +1,2 @@
+Let $f : G \to G'$ be a homomorphism. Then $$G / \ker f \simeq \Img f.$$
+$\Pf$ By the [[Universal Property of the Quotient]], there exists $\bar{f} : G / \ker f \to \Img f$. Since $\ker{\bar{f}}$ is trivial, it is injective, so $\bar{f}$ is an isomorphism. $$\qed$$
