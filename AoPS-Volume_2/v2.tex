@@ -1,5 +1,6 @@
-\documentclass{scrartcl}
+\documentclass[12pt]{scrartcl}
 \usepackage[sexy]{evan}
+\usepackage{mckinley}
 \usepackage{amsmath}
 
 \newtheorem{a_problem}{Problem}
@@ -10,6 +11,57 @@
 \begin{document}
 \maketitle
 \tableofcontents
+\setcounter{section}{6}
+\section{Polynomials}
+\setcounter{a_problem}{87}
+\setcounter{section}{16}
+\section{Counting in the Twilight Zone}
+\setcounter{exercise}{9}
+\begin{exercise}
+	In how many ways can we get a sum of 25 when 10 distinct dice are rolled?
+\end{exercise}
+\begin{soln}
+	We will spam genfuncs. 
+	\begin{align*}
+		& (1+x+x^2+x^3+x^4+x^5+x^6)^{10} \\
+		&= \left(\frac{1-x^7}{1-x}\right)^{10} \\
+	    &= \left(1-x^7\right)^{10}\left(1-x\right)^{-10} \\
+		&= \left[\binom{10}0 - \binom{10}1x^7 + \cdots + 
+		\binom{10}{10}x^{70}\right]
+		\left[\binom{-10}{0}-\binom{-10}{1}x + \cdots\right]
+	\end{align*}
+	The contributing terms are
+
+\end{soln}
+\setcounter{a_problem}{292}
+\begin{a_problem}
+	Six people sat down along one side of a banquet table completely 
+	ignoring their name cards. In how many ways could this have been
+	done so that no person was seated where his/her name card was
+	placed?
+\end{a_problem}
+\begin{soln}
+	Casework bash is actually feasible! The cases will be the number (and 
+	size of loops). \\
+	Case 1: 1 $C_6$: There are 5! ways. \\
+	Case 2: 3 $C_2$: There are $5 \cdot \binom42$ ways. \\
+	Case 3: 1 $C_4$ + 1 $C_2$: There are $\binom62 \cdot 3!$ ways. \\
+	Case 4: 2 $C_3$: There are $\binom52 \cdot 2! \cdot 2!$ ways. \\
+	The sum is 120 + 30 + 90 + 40 = \boxed{260}.
+\end{soln}
+	(This is wrong, the answer should be 265.)
+\setcounter{section}{19}
+\section{Find It and Make It}
+\begin{exercise}
+	Given lines $l$ and $m$ which intersect at $O$, prove that the locus of
+	all points $C$ such that the distnaces from $C$ to $l$ and $m$ are the
+	same is the pair of angle bisectors of the angles formed by $l$ and $m$
+	at $O$.
+\end{exercise}
+\begin{soln}
+	Equidistance $\implies$ Angle bisector by HL congruence, \\
+	Angle bisector $\implies$ Equidistance by sines.
+\end{soln}
 
 \setcounter{section}{22}
 \section{Number Theory}
@@ -179,10 +231,12 @@ Find all quadratic residues in mod 7, 8, and 9.
 	\end{soln}
 \end{exercise}
 \begin{definition*}
-	A \textbf{primitive root $\pmod{p}$} is a number $g$ with period $p-1$.
+	A \textbf{primitive root$\pmod{p}$} is a number $g$ with period $p-1$.
 \end{definition*}
 \begin{exercise}
-	Let the divisors of $p-1$ be $d_1, d_2,\dots$ Prove that if we have a primitive root $g \pmod{p}$, then for each $d_i$ there is an element with period $d_i$.
+	Let the divisors of $p-1$ be $d_1, d_2,\dots$ 
+	Prove that if we have a primitive root $g \pmod{p}$, then for each $d_i$ 
+	there is an element with period $d_i$.
 	\begin{soln}
 		If $g$ has period $p-1$, then $g^{\frac{p-1}{d_i}}$ has period $d_i$.
 	\end{soln}
@@ -413,6 +467,24 @@ Let $d$ be any positive integer not equal to 2, 5, or 13. Show that one can find
 \begin{a_problem}
 	Let $a$ and $b$ be integers and $n$ a positive integer. Prove that 
 	\[n! \mid b^{n-1}a(a+b)(a+2b)\cdots(a+(n-1)b)\]
+	\begin{soln}
+		We will use a proof by contradiction. \\
+		Let $x=b^{n-1}a(a+b)(a+2b)\cdots(a+(n-1)b)$ \\
+		Suppose that, for some prime $p$, $v_p(x) < v_p(n!)$ (where $v_p(x)$ is the greatest integer $n$ such that $p^n \mid x$).
+		\begin{claim*}
+			$(b,p) = 1$.
+		\end{claim*}
+		\begin{proof}
+			Note that $v_p(n!) = \floor{\frac{n}{p}}+ \floor{\frac{n}{p^2}}
+			\cdots < \floor{\frac np + \frac n{p^2} + \cdots}
+			= \floor{\frac {n}{p-1}}$ \\
+	Because $b^{n-1} \mid x$, and $n-1 > \floor{\frac n{p-1}}$, 
+	$(b,p) = 1$.
+		\end{proof}
+		But then $v_p(n!) = v_p(x)$ since both are equal to
+		\[\floor{\frac np } + \floor{\frac n{p^2}} \cdots \]
+		and we are done.
+	\end{soln}
 \end{a_problem}
 
 \begin{a_problem}
@@ -420,12 +492,83 @@ Let $d$ be any positive integer not equal to 2, 5, or 13. Show that one can find
 	\begin{soln}
 		For some $n=2^a \cdot b$ where b is odd, we split this up into two cases. 
 
-		Case 1. $2^a \geq \frac{b+1}{2} $ (and $b > 1$) \\
+		\textbf{Case 1.} $2^a \geq \frac{b+1}{2} $ (and $b > 1$) \\
 		We just take $2^a$, the $\frac{b-1}{2}$ numbers below it, and the $\frac{b-1}{2}$ numbers above it. Because $2^a > \frac{b+1}{2}$ all of these numbers are positive, and there are $b > 1$ terms in this sequence.
 
-		Case 2. $2^a < \frac{b+1}{2} $ \\
+		\textbf{Case 2.} $2^a < \frac{b+1}{2} $ \\
 		Consider the $2^a$ consecutive integers ending at $\frac{b-1}{2}$ and the $2^a$ consecutive integers beginning at $\frac{b+1}{2}$. The sum of these integers is obviously $2^{a}b = n$, and the minimum integer is $\frac{b+1}{2} - 2^a \geq 1$, so we're done.
 	\end{soln}
 \end{a_problem}
+\setcounter{a_problem}{436}
+\begin{a_problem}
+	If $\ln x^4 = (\ln x)^3$, find $x$.
+\begin{soln}
+	Well, that implies that $4 \ln x = (\ln x)^3$, so either 
+	$\ln x = 2$ or $\ln x = 0$, or $x = e^2$ or $x = 1$.
+\end{soln}
+\end{a_problem}
+\begin{a_problem}
+	Given $A$, a set of 13 (distinct elements), what fraction of 
+	the functions from $A$ to $A$ have a well-defined inverse function?
+	\begin{soln}
+		$A$ must be injective, so in this case it's bijective. 
+		That means that there are $13!$ ways.
+	\end{soln}
+\end{a_problem}
+\begin{a_problem}
+	With \$1000 a racher is to buy steers at \$25 each and cows at \$26 each.
+	If he has no moneyleft over, and he bought at least one of each animal,
+	how many cows did he buy?
+\end{a_problem}
+\begin{soln}
+	25 cows works.
+\end{soln}
+\setcounter{a_problem}{440}
+\begin{a_problem}[ARML 1986]
+	If $x$ is real, compute the maximum integral value of 
+	$\dfrac{3x^2+9x+17}{3x^2+9x+7}$.
+\end{a_problem}
+\begin{soln}
+	Well, we want to minimize the value of $3x^2 + 9x + 7$
+	(while keeping it above zero). Plugging in $x = -\frac{3}{2}$ gives us
+	$\frac{\frac{81}{4}}{\frac{41}{4}} = \frac{81}{41}$.
+\end{soln}
+\setcounter{a_problem}{504}
+\begin{a_problem}[Canada 1984]
+	Given any 7 real numbers, prove that there are two of them, say
+	$x$ and $y$, such that
+	\[0 \leq \frac{x-y}{1+xy} \leq \frac{1}{\sqrt{3}}.\]
+	\begin{soln}
+		Note that $\frac{x-y}{1+xy} = \tan ( \arctan x - \arctan y )$.
+		Since the domain of $\arctan$ is $(-\frac{\pi}{2},\frac{\pi}{2})$, 
+		by pigeonhole there must exist $x,y$ such that 
+		$0 \leq \arctan x - \arctan y < \frac{\pi}{6}$, which implies that
+		$0 \leq \tan (\arctan x - \arctan y) < \frac{1}{\sqrt{3}}$, and
+		we are done.
+	\end{soln}
+\end{a_problem}
+\begin{a_problem}[Mandlebrot \#1]
+	In acute triangle $ABC$, we are given $AD \perp BC, DF \perp AB$, and
+	$DE \perp AC$. The circumradius of a triangle is the radius of the 
+	circle circumscribed about the triangle. Find $\angle A$ if the product
+	of the circumradii of $\triangle ABC$ and $\triangle AEF$ is the area of
+	$\triangle ABC$.
+	\begin{soln}
+		$AD$ must be the diameter of the circumcircle of $\triangle AEF$, so
+		the circumradius of $\triangle AEF$ is one half of $AD$.
+
+		That means that the circumradius of $\triangle ABC$ must be equal to 
+		$BC$, which implies that $A = \frac{\pi}{3}$.
+	\end{soln}
+\end{a_problem}
+\begin{a_problem}
+	An ``unfair'' coin has a 2/3 probability of turning up heads. 
+	If this coin is tossed 50 times, what is the probability that the 
+	total number of heads is even?
+\end{a_problem}
+\begin{soln}
+	With generating functions and a roots of unity filter we find that the
+	answer is \boxed{\frac{1 + 3^{-50}}{2}}
+\end{soln}
 
 \end{document}
